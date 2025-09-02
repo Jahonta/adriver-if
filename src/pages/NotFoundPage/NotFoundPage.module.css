@@ -1,0 +1,10 @@
+.container {
+  padding-top: var(--space-xl);
+  text-align: center;
+  font-size: var(--text-l);
+}
+
+.code {
+  font-size: var(--text-xl);
+  color: var(--text-accent);
+}

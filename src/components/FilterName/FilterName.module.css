@@ -1,0 +1,11 @@
+.container {
+  display: grid;
+  gap: var(--space-m)
+}
+
+.input {
+  font-size: inherit;
+  min-height: 36px;
+  min-width: 300px;
+  padding: var(--space-m);
+}

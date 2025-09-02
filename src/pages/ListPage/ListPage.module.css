@@ -1,0 +1,9 @@
+.container {
+  min-width: 800px;
+  align-self: center;
+  padding: var(--space-m);
+}
+
+.empty {
+   text-align: center;
+}

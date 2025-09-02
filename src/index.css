@@ -1,0 +1,110 @@
+*, *::before, *::after {
+  box-sizing: inherit;
+}
+
+:root {
+  --bgc-dark: rgb(50, 50, 50);
+  --bgc-light: rgb(230, 230, 230);
+  --bgc-white: rgb(255, 255, 255);
+  --bgc-accent: rgb(0, 119, 215);
+  --bgc-error: rgb(215, 72, 0);
+  --bgc-success: rgb(87, 122, 54);
+
+  --text-xl: 60px;
+  --text-l: 36px;
+  --text-m: 18px;
+  --text-s: 14px;
+  --text-primary: rgb(91, 91, 91);
+  --text-secondary: rgb(255, 255, 255);
+  --text-accent: rgb(0, 119, 215);
+  --text-error: rgb(215, 72, 0);
+
+  --border-radius-l: 16px;
+  --border-radius-m: 12px;
+  --border-radius-s: 4px;
+  --box-shadow: rgba(100, 100, 100, 0.2) 0px 0px 24px;
+
+  --space-xl: 24px;
+  --space-l: 16px;
+  --space-m: 8px;
+  --space-s: 4px;
+}
+
+body {
+  margin: 0;
+  box-sizing: border-box;
+  background-color: var(--bgc-light);
+
+  font-size: var(--text-m);
+  font-family: system-ui, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  color: var(--text-primary);
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+  position: relative;
+}
+
+a.active {
+  font-weight: 900;
+}
+
+a::after {
+  content: "";
+  position: absolute;
+  bottom: calc(var(--space-s) * -1);
+  left: 0;
+  right: 0;
+  height: 1px;
+  background-color: var(--text-primary);
+  opacity: 0;
+  transition: all 0.3s;
+}
+
+a:focus {
+  outline: none;
+}
+
+a:hover,
+a:focus-visible {
+  color: var(--text-accent);
+}
+
+a:hover::after,
+a:focus-visible::after {
+  opacity: 1;
+}
+
+button {
+  cursor: pointer;
+  border-radius: var(--border-radius-s);
+}
+
+input {
+  border: 1px solid var(--text-primary);
+  border-radius: var(--border-radius-s);
+}
+
+input:focus {
+  outline: none;
+}
+
+input:hover,
+input:active,
+input:focus,
+inputa:focus-visible {
+  border: 1px solid var(--text-accent);
+}
+
+.wrapper {
+  margin: 0 auto;
+  max-width: 1200px;
+  width: 100%;
+}

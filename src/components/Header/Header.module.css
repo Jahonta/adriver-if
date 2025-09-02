@@ -1,0 +1,16 @@
+.container {
+  padding: var(--space-xl);
+  background-color: var(--bgc-dark);
+  border-radius: var(--border-radius-l);
+}
+
+.logo {
+  color: var(--text-secondary);
+  font-size: var(--text-l);
+  letter-spacing: 1px;
+}
+
+.logo:hover,
+.logo:focus-visible {
+  color: var(--text-secondary);
+}

@@ -1,0 +1,94 @@
+.form {
+  display: grid;
+
+  padding: var(--space-l);
+
+  background-color: var(--bgc-white);
+  box-shadow: var(--box-shadow);
+  border-radius: var(--border-radius-m);
+}
+
+.form ::placeholder {
+  opacity: 0.5;
+}
+
+.fieldWrapper {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-s);
+  margin-bottom: var(--space-l);
+}
+
+.label {
+  display: block;
+  width: 100%;
+}
+
+.input {
+  font-size: inherit;
+  flex-grow: 1;
+  min-height: 36px;
+  padding: var(--space-m);
+}
+
+.checkbox {
+  appearance: none;
+}
+
+.checkbox::before {
+  content: '';
+  display: block;
+  width: 24px;
+  height: 24px;
+  cursor: pointer;
+}
+
+.checkbox:checked:before {
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-image: url('/check.svg');
+}
+
+.fieldError {
+  color: var(--text-error);
+}
+
+.showPasswordButton {
+  display: grid;
+  place-content: center;
+  aspect-ratio: 1;
+  height: 40px;
+  border: 1px solid var(--text-primary);
+}
+
+.showPasswordButton:focus {
+  outline: none;
+}
+
+.showPasswordButton:hover,
+.showPasswordButton:focus-visible {
+  border: 1px solid var(--text-accent);
+}
+
+.submitButton {
+  justify-self: center;
+  margin-top: var(--space-l);
+  padding: var(--space-m) var(--space-l);
+
+  font-size: inherit;
+
+  background-color: var(--bgc-white);
+  color: var(--text-accent);
+  border: 1px solid var(--bgc-accent);
+}
+
+.submitButton:focus {
+  outline: none;
+}
+
+.submitButton:hover,
+.submitButton:focus-visible {
+  background-color: var(--bgc-accent);
+  color: var(--text-secondary);
+  border: 1px solid transparent;
+}

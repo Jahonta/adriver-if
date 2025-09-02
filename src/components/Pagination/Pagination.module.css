@@ -1,0 +1,20 @@
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  gap: var(--space-s);
+}
+
+.pageButton {
+  padding: var(--space-m) var(--space-l);
+
+  background-color: var(--bgc-white);
+  border: 1px solid var(--bgc-dark);
+  color: var(--text-primary);
+  font-size: inherit;
+}
+
+.current {
+  background-color: var(--bgc-accent);
+  color: var(--text-secondary);
+}

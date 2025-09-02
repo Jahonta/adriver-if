@@ -1,0 +1,17 @@
+.container {
+  width: 100%;
+}
+
+.high {
+  background-color: var(--bgc-error);
+  color: var(--text-secondary);
+}
+
+.medium {
+  background-color: var(--bgc-accent);
+  color: var(--text-secondary);
+}
+
+.low {
+  background-color: var(--bgc-light);
+}

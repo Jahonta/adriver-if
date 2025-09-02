@@ -1,0 +1,10 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-xl);
+
+  min-height: 100vh;
+  min-width: fit-content;
+  padding: var(--space-l);
+  padding-bottom: 0;
+}

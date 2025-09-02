@@ -1,0 +1,32 @@
+.header {
+  padding: var(--space-m);
+  border-bottom: 1px solid var(--bgc-dark);
+}
+
+.pinned {
+  position: sticky;
+  left: 0;
+
+  opacity: 0.95;
+  z-index: 1;
+
+  background-color: var(--bgc-white);
+  box-shadow: -4px 0 4px -4px var(--bgc-light) inset;
+  border-top-left-radius: var(--border-radius-m);
+}
+
+.sortable {
+  cursor: pointer;
+}
+
+.sorted {
+  background-color: var(--bgc-light);
+}
+
+.sortButton {
+  border: 1px solid transparent;
+  margin: var(--space-m);
+  padding: 0 var(--space-s);
+  background-color: transparent;
+  color: var(--text-primary);
+}

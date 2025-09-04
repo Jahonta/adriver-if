@@ -2,12 +2,14 @@ import cn from 'classnames'
 import { Link, NavLink, useLocation } from 'react-router'
 
 import { useAppSelector } from '../../hooks/use-app-selector'
-import { getIsAdmin, getIsLoggedIn, getUserEmail } from '../../store/user/selectors'
-
-import styles from './Nav.module.css'
-import { AppRoute } from '../../constants'
 import { useAppDispatch } from '../../hooks/use-app-dispatch'
 import { logout } from '../../store/user/state'
+import { dropSelected } from '../../store/data/state'
+import { getIsAdmin, getIsLoggedIn, getUserEmail } from '../../store/user/selectors'
+
+import { AppRoute } from '../../constants'
+
+import styles from './Nav.module.css'
 
 const Nav = () => {
   const dispatch = useAppDispatch()
@@ -18,6 +20,7 @@ const Nav = () => {
   const shouldDisplayLoginNav = location.pathname !== AppRoute.Login
 
   const handleLogout = () => {
+    dispatch(dropSelected())
     dispatch(logout())
   }
 

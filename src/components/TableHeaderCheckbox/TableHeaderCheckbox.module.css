@@ -1,0 +1,50 @@
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: var(--space-s);
+}
+
+.checkbox {
+  width: 20px;
+  height: 20px;
+  display: grid;
+  place-content: center;
+  appearance: none;
+  line-height: 1;
+}
+
+.checkbox::before {
+  content: '';
+  display: block;
+  width: 16px;
+  height: 16px;
+  cursor: pointer;
+}
+
+.checkbox:checked:before {
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-image: url('/check.svg');
+}
+
+.checkedSome:before {
+  content: '✖️';
+  width: 20px;
+  height: 10px;
+}
+
+.uploadButton {
+  width: 32px;
+  margin: 0;
+  padding: 0;
+
+  color: var(--text-accent);
+  background-color: var(--bgc-white);
+  border: none;
+}
+
+.uploadButton:disabled {
+  opacity: 0.5;
+  cursor: default;
+}

@@ -7,6 +7,8 @@ import { formatDate } from '../../utils/format-date'
 
 import Priority from '../Priority'
 import Status from '../Status'
+import TableHeaderCheckbox from '../TableHeaderCheckbox'
+import TableCellCheckbox from '../TableCellCheckbox'
 
 const columnHelper = createColumnHelper<TEntity>()
 
@@ -37,6 +39,13 @@ const filterTimestapFn: FilterFn<TEntity> = (row, _, value: [number | null, numb
 }
 
 const columns = [
+  columnHelper.display({
+    id: 'select',
+    enableHiding: true,
+    header: ({ table }) => <TableHeaderCheckbox table={table} />,
+    cell: ({ row }) => <TableCellCheckbox row={row} />,
+    size: 79
+  }),
   columnHelper.accessor('id', {
     cell: ({ getValue }) => getValue(),
     header: 'ID',

@@ -10,18 +10,29 @@ type TableHeaderProps = {
 }
 
 const TableHeader = ({ header }: TableHeaderProps) => {
+  const column = header.column
+
   return <th className={cn(styles.header, {
-    [styles.pinned]: header.column.getIsPinned(),
-    [styles.sortable]: header.column.getCanSort(),
-    [styles.sorted]: header.column.getIsSorted()
+    [styles.pinned]: column.getIsPinned(),
+    [styles.sortable]: column.getCanSort(),
+    [styles.sorted]: column.getIsSorted()
   })}
-    onClick={header.column.getToggleSortingHandler()}
-    key={header.id}>
-    {flexRender(header.column.columnDef.header, header.getContext())}
-    {header.column.getCanSort() && <button className={cn(styles.sortButton)}>
-      {header.column.getNextSortingOrder() === 'asc'
+    onClick={column.getToggleSortingHandler()}
+    style={{
+      left: `${column.getStart('left')}px`,
+      borderTopLeftRadius: column.getIsFirstColumn('left')
+        ? 'var(--border-radius-m)'
+        : undefined,
+      boxShadow: column.getIsLastColumn('left')
+        ? '-4px 0 8px -4px var(--bgc-light) inset'
+        : undefined
+    }}
+  >
+    {flexRender(column.columnDef.header, header.getContext())}
+    {column.getCanSort() && <button className={cn(styles.sortButton)}>
+      {column.getNextSortingOrder() === 'asc'
         ? '⬇'
-        : header.column.getNextSortingOrder() === 'desc'
+        : column.getNextSortingOrder() === 'desc'
           ? '⬆'
           : '✖️'}
     </button>}

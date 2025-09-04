@@ -1,3 +1,4 @@
+import { useEffect } from 'react'
 import {
   useReactTable,
   getCoreRowModel,
@@ -9,12 +10,17 @@ import cn from 'classnames'
 
 import type { TEntity } from '../../types/entity'
 
-import styles from './Table.module.css'
-import columns from './columns'
 import Filter from '../Filter'
 import Pagination from '../Pagination'
 import TableHeader from '../TableHeader'
 import TableCell from '../TableCell'
+
+import { useAppSelector } from '../../hooks/use-app-selector'
+import { getIsLoggedIn } from '../../store/user/selectors'
+import { getSelected } from '../../store/data/selectors'
+
+import columns from './columns'
+import styles from './Table.module.css'
 
 type TableProps = {
   data: TEntity[];
@@ -22,7 +28,7 @@ type TableProps = {
 
 const initialState = {
   columnPinning: {
-    left: ['id'],
+    left: ['select', 'id'],
     right: [],
   },
   sorting: [
@@ -41,6 +47,9 @@ const initialState = {
 }
 
 const Table = ({ data }: TableProps) => {
+  const isLoggedIn = useAppSelector(getIsLoggedIn)
+  const selected = useAppSelector(getSelected)
+
   const table = useReactTable({
     initialState: initialState,
     columns: columns,
@@ -49,8 +58,25 @@ const Table = ({ data }: TableProps) => {
     getSortedRowModel: getSortedRowModel(),
     getFilteredRowModel: getFilteredRowModel(),
     getPaginationRowModel: getPaginationRowModel(),
-    autoResetPageIndex: true
+    autoResetPageIndex: true,
+    enableRowSelection: true,
+    getRowId: (row) => row.id.toString()
   })
+
+  useEffect(() => {
+    table.setColumnVisibility({
+      select: isLoggedIn
+    })
+  }, [table, isLoggedIn])
+
+  useEffect(() => {
+    const rowSelection = selected.reduce((acc, curr) => {
+      acc[curr] = true
+      return acc
+    }, {} as Record<TEntity['id'], boolean>)
+
+    table.setRowSelection(rowSelection)
+  }, [table, selected])
 
   return <div className={cn(styles.container)}>
     <Filter table={table} />
@@ -60,14 +86,14 @@ const Table = ({ data }: TableProps) => {
         <thead>
           {table.getHeaderGroups().map((headerGroup) => (
             <tr key={headerGroup.id}>
-              {headerGroup.headers.map((header) => <TableHeader header={header} />)}
+              {headerGroup.headers.map((header) => <TableHeader key={header.id} header={header} />)}
             </tr>
           ))}
         </thead>
         <tbody>
           {table.getRowModel().rows.map((row) => (
             <tr key={row.id}>
-              {row.getVisibleCells().map((cell) => <TableCell cell={cell} />)}
+              {row.getVisibleCells().map((cell) => <TableCell key={cell.id} cell={cell} />)}
             </tr>)
           )}
         </tbody>

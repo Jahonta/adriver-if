@@ -10,10 +10,8 @@
   position: sticky;
   left: 0;
 
-  opacity: 0.95;
   z-index: 1;
 
   background-color: var(--bgc-white);
-  box-shadow: -4px 0 4px -4px var(--bgc-light) inset;
   border-bottom-left-radius: var(--border-radius-m);
 }

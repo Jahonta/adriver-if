@@ -1,0 +1,28 @@
+.cell {
+  text-align: right;
+}
+
+.checkbox {
+  width: 20px;
+  height: 20px;
+  margin-left: auto;
+
+  display: grid;
+  place-content: center;
+
+  appearance: none;
+}
+
+.checkbox::before {
+  content: '';
+  display: block;
+  width: 16px;
+  height: 16px;
+  cursor: pointer;
+}
+
+.checkbox:checked:before {
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-image: url('/check.svg');
+}

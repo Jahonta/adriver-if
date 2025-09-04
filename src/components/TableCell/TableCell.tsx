@@ -13,7 +13,13 @@ const TableCell = ({ cell }: TableCellProps) => {
   return <td className={cn(styles.cell, {
     [styles.pinned]: cell.column.getIsPinned()
   })}
-    key={cell.id}>
+    style={{
+      left: `${cell.column.getStart('left')}px`,
+      boxShadow: cell.column.getIsLastColumn('left')
+        ? '-4px 0 8px -4px var(--bgc-light) inset'
+        : undefined
+    }}
+  >
     {flexRender(
       cell.column.columnDef.cell,
       cell.getContext(),

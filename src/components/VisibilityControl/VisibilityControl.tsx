@@ -12,7 +12,9 @@ type VisibilityControlProps = {
 const VisibilityControl = ({ table }: VisibilityControlProps) => {
   return <fieldset className={cn(styles.container)}>
     <legend className={cn(styles.title)}>Видимость колонок</legend>
-    {table.getAllLeafColumns().map((column) => (
+    {['id', 'priority', 'status', 'name', 'timestamp', 'owner']
+    .map((id) => table.getColumn(id)!)
+    .map((column) => (
       <div key={column.id}>
         <label className={cn(styles.label)}>
           <input

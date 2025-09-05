@@ -1,0 +1,10 @@
+.cell {
+  width: fit-content;
+  padding: var(--space-m);
+  position: relative;
+
+  border-bottom: 1px solid var(--bgc-light);
+
+  transition: width transform 0.2s ease-in-out;
+  text-align: center;
+}

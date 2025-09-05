@@ -1,0 +1,8 @@
+.header {
+  position: relative;
+  padding: var(--space-m);
+
+  transition: width transform 0.2s ease-in-out;
+  white-space: nowrap;
+  border-bottom: 1px solid var(--bgc-dark);
+}

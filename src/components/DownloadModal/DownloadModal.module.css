@@ -2,7 +2,7 @@
   display: grid;
   gap: var(--space-l);
   width: 800px;
-  padding: var(--space-m);
+  padding: var(--space-xl);
 
   border: 1px solid var(--bgc-light);
   border-radius: var(--border-radius-m);

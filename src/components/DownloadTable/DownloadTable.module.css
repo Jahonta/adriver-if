@@ -1,6 +1,24 @@
 .container {
   display: grid;
-  gap: var(--space-l);
+  gap: var(--space-xl);
+}
+
+.preview {
+  padding: var(--space-m);
+
+  border: 1px solid var(--bgc-dark);
+  border-radius: var(--border-radius-s);
+}
+
+.label {
+  width: max-content;
+  margin-top: -22px;
+  margin-bottom: var(--space-m);
+  padding: 0 var(--space-m);
+
+  background-color: var(--bgc-white);
+
+  font-weight: 600;
 }
 
 .table {

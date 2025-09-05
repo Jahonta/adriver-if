@@ -22,6 +22,7 @@ import {
 
 import type { TEntity } from '../../types/entity'
 
+import DownloadFormats from '../DownloadFormats'
 import VisibilityControl from '../VisibilityControl'
 import TableHeaderDraggable from '../TableHeaderDraggable'
 import TableRowDraggable from '../TableRowDraggable'
@@ -48,7 +49,12 @@ const DownloadTable = ({ data }: DownloadTableProps) => {
   const [processedData, setProcessedData] = useState<TEntity[]>(data)
   const [columnVisibility, setColumnVisibility] = useState<Record<string, boolean>>(intitialColumnVisibilityState)
   const [columnOrder, setColumnOrder] = useState<string[]>(initialColumnOrderState)
-  const dataIds = useMemo<UniqueIdentifier[]>(() => processedData.map(({ id }) => id), [processedData])
+  const dataIds = useMemo<UniqueIdentifier[]>(
+    () => processedData.map(({ id }) => id),
+    [processedData])
+  const columnsToDownload = useMemo(
+    () => columnOrder.filter((id) => columnVisibility[id]) as (keyof TEntity)[],
+    [columnOrder, columnVisibility])
 
   const table = useReactTable({
     columns: columns,
@@ -95,38 +101,42 @@ const DownloadTable = ({ data }: DownloadTableProps) => {
   )
 
   return <div className={cn(styles.container)}>
+    <DownloadFormats data={processedData} columns={columnsToDownload} />
     <VisibilityControl table={table} />
-    <DndContext
-      collisionDetection={closestCenter}
-      modifiers={[restrictToParentElement]}
-      onDragEnd={handleDragEnd}
-      sensors={sensors}
-    >
-      <table className={cn(styles.table)}>
-        <thead>
-          {table.getHeaderGroups().map((headerGroup) => (
-            <tr key={headerGroup.id}>
-              <SortableContext
-                items={columnOrder}
-                strategy={horizontalListSortingStrategy}
-              >
-                {headerGroup.headers.map((header) => <TableHeaderDraggable key={header.id} header={header} />)}
-              </SortableContext>
-            </tr>
-          ))}
-        </thead>
-        <tbody>
-          <SortableContext
-            items={dataIds}
-            strategy={verticalListSortingStrategy}
-          >
-            {table.getRowModel().rows.map((row) => (
-              <TableRowDraggable key={row.id} row={row} columnOrder={columnOrder} />
+    <div className={cn(styles.preview)}>
+      <div className={cn(styles.label)}>Порядок колонок и строк</div>
+      <DndContext
+        collisionDetection={closestCenter}
+        modifiers={[restrictToParentElement]}
+        onDragEnd={handleDragEnd}
+        sensors={sensors}
+      >
+        <table className={cn(styles.table)}>
+          <thead>
+            {table.getHeaderGroups().map((headerGroup) => (
+              <tr key={headerGroup.id}>
+                <SortableContext
+                  items={columnOrder}
+                  strategy={horizontalListSortingStrategy}
+                >
+                  {headerGroup.headers.map((header) => <TableHeaderDraggable key={header.id} header={header} />)}
+                </SortableContext>
+              </tr>
             ))}
-          </SortableContext>
-        </tbody>
-      </table>
-    </DndContext>
+          </thead>
+          <tbody>
+            <SortableContext
+              items={dataIds}
+              strategy={verticalListSortingStrategy}
+            >
+              {table.getRowModel().rows.map((row) => (
+                <TableRowDraggable key={row.id} row={row} columnOrder={columnOrder} />
+              ))}
+            </SortableContext>
+          </tbody>
+        </table>
+      </DndContext>
+    </div>
   </div >
 }
 

@@ -1,0 +1,23 @@
+.button {
+  width: 32px;
+  margin: 0;
+  padding: var(--space-s);
+
+  color: var(--text-accent);
+  background-color: var(--bgc-white);
+  border: 1px solid transparent;
+}
+
+.button:disabled {
+  opacity: 0.5;
+  cursor: default;
+}
+
+.button:focus {
+  outline: none;
+}
+
+.button:not(:disabled):hover,
+.button:not(:disabled):focus-visible {
+  border: 1px solid var(--bgc-accent)
+}

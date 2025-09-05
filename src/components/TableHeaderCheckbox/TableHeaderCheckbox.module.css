@@ -33,18 +33,3 @@
   width: 20px;
   height: 10px;
 }
-
-.uploadButton {
-  width: 32px;
-  margin: 0;
-  padding: 0;
-
-  color: var(--text-accent);
-  background-color: var(--bgc-white);
-  border: none;
-}
-
-.uploadButton:disabled {
-  opacity: 0.5;
-  cursor: default;
-}

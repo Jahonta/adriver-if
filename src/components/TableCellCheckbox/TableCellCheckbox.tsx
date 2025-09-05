@@ -15,14 +15,12 @@ type TableCellCheckboxProps = {
 const TableCellCheckbox = ({ row }: TableCellCheckboxProps) => {
   const dispatch = useAppDispatch()
 
-  const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+  const handleChange = () => {
     if (row.getIsSelected()) {
       dispatch(removeSelected(row.getValue('id')))
     } else {
       dispatch(addSelected(row.getValue('id')))
     }
-
-    row.getToggleSelectedHandler()(event)
   }
 
   return <div className={cn(styles.cell)}>

@@ -1,0 +1,30 @@
+.dialog {
+  display: grid;
+  width: 800px;
+  padding: var(--space-m);
+
+  border: 1px solid var(--bgc-light);
+  border-radius: var(--border-radius-m);
+  box-shadow: var(--box-shadow);
+}
+
+.cancelButton {
+  margin-left: auto;
+  padding: var(--space-m) var(--space-l);
+
+  font-size: inherit;
+  background-color: var(--bgc-white);
+  color: var(--text-error);
+  border: 1px solid var(--bgc-error);
+}
+
+.cancelButton:focus {
+  outline: none;
+}
+
+.cancelButton:hover,
+.cancelButton:focus-visible {
+  background-color: var(--bgc-error);
+  color: var(--text-secondary);
+  border: 1px solid transparent;
+}

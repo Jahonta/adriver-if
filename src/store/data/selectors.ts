@@ -16,7 +16,7 @@ export const getSelected = createSelector(
   (state: DataState) => state.selected
 )
 
-export const getIsSelected = createSelector(
-  getSelected,
-  (state: number[]) => (id: number) => state.includes(id)
+export const hasSelected = createSelector(
+  (state: TState) => state[StoreNameSpace.Data],
+  (state: DataState) => state.selected.length > 0
 )

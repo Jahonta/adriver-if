@@ -72,8 +72,8 @@ const LoginForm = ({ handleSubmit }: LoginFormProps) => {
             onClick={handleShowPasswordClick}
             type='button'>
             {showPassword
-              ? <img src="/hide-password.svg" alt="Скрыть пароль" />
-              : <img src="/show-password.svg" alt="Показать пароль" />
+              ? <img src="/icons/hide-password.svg" alt="Скрыть пароль" />
+              : <img src="/icons/show-password.svg" alt="Показать пароль" />
             }
           </button>
           <ErrorMessage component='div' name='password' className={cn(styles.fieldError)} />

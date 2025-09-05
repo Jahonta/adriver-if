@@ -22,7 +22,7 @@ const DownloadButton = () => {
       disabled={isDisabled}
       onClick={open}
     >
-      <img src="/download.svg" alt="Выгрузить выбранное" />
+      <img src="/icons/download.svg" alt="Выгрузить выбранное" />
     </button>
     {isOpen && createPortal(
       <DownloadModal ref={modalRef} onClose={close} />,

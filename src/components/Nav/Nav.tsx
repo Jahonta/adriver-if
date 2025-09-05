@@ -36,7 +36,7 @@ const Nav = () => {
       {isLoggedIn
         ? <div className={cn(styles.userInfo)}>
           <span>
-            <img src="/profile.svg" alt="" aria-hidden />
+            <img src="/icons/profile.svg" alt="" aria-hidden />
             {email}
           </span>
           <button className={cn(styles.logoutButton)}

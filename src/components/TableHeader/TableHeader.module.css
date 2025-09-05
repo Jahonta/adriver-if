@@ -1,6 +1,7 @@
 .header {
   padding: var(--space-m);
   border-bottom: 1px solid var(--bgc-dark);
+  vertical-align: baseline;
 }
 
 .pinned {

@@ -39,5 +39,5 @@
 .checkbox:checked:before {
   background-size: cover;
   background-repeat: no-repeat;
-  background-image: url('/check.svg');
+  background-image: url('/icons/check.svg');
 }

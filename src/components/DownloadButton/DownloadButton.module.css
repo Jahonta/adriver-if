@@ -1,11 +1,13 @@
 .button {
+  align-self: flex-end;
   width: 32px;
   margin: 0;
-  padding: var(--space-s);
+  padding: 0;
 
   color: var(--text-accent);
   background-color: var(--bgc-white);
   border: 1px solid transparent;
+  font-size: 0;
 }
 
 .button:disabled {

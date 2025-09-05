@@ -1,0 +1,8 @@
+.container {
+  display: grid;
+  gap: var(--space-l);
+}
+
+.table {
+  font-size: var(--text-s);
+}

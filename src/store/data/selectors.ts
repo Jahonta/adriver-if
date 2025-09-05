@@ -20,3 +20,8 @@ export const hasSelected = createSelector(
   (state: TState) => state[StoreNameSpace.Data],
   (state: DataState) => state.selected.length > 0
 )
+
+export const getSelectedEntities = createSelector(
+  (state: TState) => state[StoreNameSpace.Data],
+  (state: DataState) => state.entities.filter((entity) => state.selected.includes(entity.id))
+)

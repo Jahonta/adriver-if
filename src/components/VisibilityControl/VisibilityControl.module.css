@@ -1,0 +1,43 @@
+.container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-m);
+
+  padding: var(--space-m);
+
+  border: 1px solid var(--bgc-dark);
+  border-radius: var(--border-radius-s);
+}
+
+.title {
+  padding: 0 var(--space-m);
+
+  font-weight: 600;
+}
+
+.label {
+  cursor: pointer;
+  display: flex;
+  gap: var(--space-s)
+}
+
+.checkbox {
+  width: 20px;
+  height: 20px;
+
+  appearance: none;
+}
+
+.checkbox::before {
+  content: '';
+  display: block;
+  width: 16px;
+  height: 16px;
+  cursor: pointer;
+}
+
+.checkbox:checked:before {
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-image: url('/check.svg');
+}

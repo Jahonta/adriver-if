@@ -65,7 +65,7 @@ const Table = ({ data }: TableProps) => {
 
   useEffect(() => {
     table.setColumnVisibility({
-      select: isLoggedIn
+      select: !isLoggedIn
     })
   }, [table, isLoggedIn])
 

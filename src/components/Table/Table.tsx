@@ -16,10 +16,10 @@ import TableHeader from '../TableHeader'
 import TableCell from '../TableCell'
 
 import { useAppSelector } from '../../hooks/use-app-selector'
-import { getIsLoggedIn } from '../../store/user/selectors'
+import { getIsAdmin, getIsLoggedIn } from '../../store/user/selectors'
 import { getSelected } from '../../store/data/selectors'
 
-import columns from './columns'
+import getColumns from './get-columns'
 import styles from './Table.module.css'
 
 type TableProps = {
@@ -49,10 +49,11 @@ const initialState = {
 const Table = ({ data }: TableProps) => {
   const isLoggedIn = useAppSelector(getIsLoggedIn)
   const selected = useAppSelector(getSelected)
+  const isAdmin = useAppSelector(getIsAdmin)
 
   const table = useReactTable({
     initialState: initialState,
-    columns: columns,
+    columns: getColumns(isAdmin),
     data: data,
     getCoreRowModel: getCoreRowModel(),
     getSortedRowModel: getSortedRowModel(),

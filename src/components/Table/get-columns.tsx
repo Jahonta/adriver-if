@@ -9,6 +9,8 @@ import Priority from '../Priority'
 import Status from '../Status'
 import TableHeaderCheckbox from '../TableHeaderCheckbox'
 import TableCellCheckbox from '../TableCellCheckbox'
+import TableCellSelect from '../TableCellSelectPriority'
+import TableCellSelectStatus from '../TableCellSelectStatus'
 
 const columnHelper = createColumnHelper<TEntity>()
 
@@ -38,7 +40,7 @@ const filterTimestapFn: FilterFn<TEntity> = (row, _, value: [number | null, numb
   return true
 }
 
-const columns = [
+const getColumns = (isAdmin: boolean) => [
   columnHelper.display({
     id: 'select',
     enableHiding: true,
@@ -53,12 +55,12 @@ const columns = [
     sortDescFirst: false
   }),
   columnHelper.accessor('priority', {
-    cell: ({ getValue }) => <Priority value={getValue() as TEntityPriority} />,
+    cell: (props) => isAdmin ? <TableCellSelect row={props.row} /> : <Priority value={props.getValue() as TEntityPriority} />,
     header: 'Приоритет',
     sortDescFirst: false
   }),
   columnHelper.accessor('status', {
-    cell: ({ getValue }) => <Status value={getValue()} />,
+    cell: (props) => isAdmin ? <TableCellSelectStatus row={props.row} /> : <Status value={props.getValue()} />,
     header: 'Статус',
     enableSorting: false,
   }),
@@ -79,4 +81,4 @@ const columns = [
   }),
 ]
 
-export default columns
+export default getColumns

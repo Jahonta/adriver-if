@@ -25,6 +25,16 @@ export const dataSlice = createSlice(
       addEntity(state, { payload }: PayloadAction<TEntity>) {
         state.entities.push(payload)
       },
+      updatePriority(state, { payload }: PayloadAction<{ id: TEntity['id']; priority: TEntity['priority'] }>) {
+        state.entities = state.entities.map((entity) => entity.id === payload.id
+          ? { ...entity, priority: payload.priority }
+          : entity)
+      },
+      updateStatus(state, { payload }: PayloadAction<{ id: TEntity['id']; status: TEntity['status'] }>) {
+        state.entities = state.entities.map((entity) => entity.id === payload.id
+          ? { ...entity, status: payload.status }
+          : entity)
+      },
       addSelected(state, { payload }: PayloadAction<TEntity['id']>) {
         state.selected.push(payload)
       },
@@ -44,6 +54,8 @@ export const dataSlice = createSlice(
 export const {
   setData,
   addEntity,
+  updatePriority,
+  updateStatus,
   addSelected,
   removeSelected,
   selectAll,

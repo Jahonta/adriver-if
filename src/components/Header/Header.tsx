@@ -1,8 +1,9 @@
 import cn from 'classnames'
+import { Link } from 'react-router'
+
+import { AppRoute } from '../../constants'
 
 import styles from './Header.module.css'
-import { Link } from 'react-router'
-import { AppRoute } from '../../constants'
 
 const Header = () => {
   return <header className={cn(styles.container)}>

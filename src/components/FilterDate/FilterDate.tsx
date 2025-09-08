@@ -1,11 +1,10 @@
 import { useState } from 'react'
-
 import cn from 'classnames'
+
 import DatePicker, { registerLocale } from 'react-datepicker'
 import { ru } from 'date-fns/locale/ru'
-
-registerLocale('ru', ru)
 import 'react-datepicker/dist/react-datepicker.css'
+registerLocale('ru', ru)
 
 import styles from './FilterDate.module.css'
 

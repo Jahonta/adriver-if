@@ -3,7 +3,6 @@ import cn from 'classnames'
 import Table from '../../components/Table'
 
 import { useAppSelector } from '../../hooks/use-app-selector'
-
 import { getEntities } from '../../store/data/selectors'
 
 import styles from './ListPage.module.css'

@@ -4,9 +4,9 @@ import type { Row } from '@tanstack/react-table'
 import type { TEntity } from '../../types/entity'
 
 import { useAppDispatch } from '../../hooks/use-app-dispatch'
+import { addSelected, removeSelected } from '../../store/data/state'
 
 import styles from './TableCellCheckbox.module.css'
-import { addSelected, removeSelected } from '../../store/data/state'
 
 type TableCellCheckboxProps = {
   row: Row<TEntity>;

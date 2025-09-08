@@ -7,7 +7,6 @@ import type { TEntityPriority } from '../../types/entity-priority'
 import type { TEntity } from '../../types/entity'
 
 import { useAppDispatch } from '../../hooks/use-app-dispatch'
-
 import { addEntity } from '../../store/data/state'
 
 import { EntityStatus } from '../../constants'

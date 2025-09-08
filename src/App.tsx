@@ -3,7 +3,6 @@ import router from './router'
 import { useEffect } from 'react'
 
 import { useAppDispatch } from './hooks/use-app-dispatch'
-
 import { setData } from './store/data/state'
 
 import data from './data'

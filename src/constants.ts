@@ -11,7 +11,7 @@ export const StoreNameSpace = {
 } as const
 
 export const UserRole = {
-  Guest: 'Guest',
+  Guest: 'GUEST',
   User: 'USER',
   Admin: 'ADMIN'
 } as const

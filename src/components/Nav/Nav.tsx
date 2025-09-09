@@ -24,27 +24,28 @@ const Nav = () => {
     dispatch(logout())
   }
 
-  return <div className='wrapper'><div className={cn(styles.container)}>
-    {isAdmin && <div className={cn(styles.adminNav)}>
-      <ul>
-        <li><NavLink
-          to={AppRoute.List}>Список</NavLink></li>
-        <li><NavLink to={AppRoute.NewEntity}>+ Создать</NavLink></li>
-      </ul>
-    </div>}
-    {shouldDisplayLoginNav && <div className={cn(styles.loginNav)}>
-      {isLoggedIn
-        ? <div className={cn(styles.userInfo)}>
-          <span>
-            <img src="/icons/profile.svg" alt="" aria-hidden />
-            {email}
-          </span>
-          <button className={cn(styles.logoutButton)}
-            onClick={handleLogout}>Выйти</button>
-        </div>
-        : <Link to={AppRoute.Login}>Войти</Link>}
-    </div>}
-  </div>
+  return <div className='wrapper'>
+    <nav className={cn(styles.container)}>
+      {isAdmin && <div className={cn(styles.adminNav)}>
+        <ul>
+          <li><NavLink
+            to={AppRoute.List}>Список</NavLink></li>
+          <li><NavLink to={AppRoute.NewEntity}>+ Создать</NavLink></li>
+        </ul>
+      </div>}
+      {shouldDisplayLoginNav && <div className={cn(styles.loginNav)}>
+        {isLoggedIn
+          ? <div className={cn(styles.userInfo)}>
+            <span>
+              <img src="/icons/profile.svg" alt="" aria-hidden />
+              {email}
+            </span>
+            <button className={cn(styles.logoutButton)}
+              onClick={handleLogout}>Выйти</button>
+          </div>
+          : <Link to={AppRoute.Login}>Войти</Link>}
+      </div>}
+    </nav>
   </div>
 }
 

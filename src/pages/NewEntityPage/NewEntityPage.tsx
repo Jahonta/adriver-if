@@ -32,10 +32,10 @@ const NewEntityPage = () => {
     return Promise.resolve()
   }
 
-  return <div className={cn(styles.container)}>
+  return <main className={cn(styles.container)}>
     <title>Добавление новой сущности</title>
     <EntityForm handleSubmit={handleSubmit} />
-  </div>
+  </main>
 }
 
 export default NewEntityPage

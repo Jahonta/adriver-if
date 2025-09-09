@@ -14,10 +14,10 @@ const ListPage = () => {
     return <div className={cn(styles.empty)}>Список пуст</div>
   }
 
-  return <div className={cn('wrapper', styles.container)}>
+  return <main className={cn('wrapper', styles.container)}>
     <title>Список сущностей</title>
     <Table data={entities} />
-  </div>
+  </main>
 }
 
 export default ListPage

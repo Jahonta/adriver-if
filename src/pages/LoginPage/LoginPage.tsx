@@ -19,10 +19,10 @@ const LoginPage = () => {
     }))
   }
 
-  return <div className={cn(styles.container)}>
+  return <main className={cn(styles.container)}>
     <title>Вход</title>
     <LoginForm handleSubmit={handleSubmit} />
-  </div>
+  </main>
 }
 
 export default LoginPage

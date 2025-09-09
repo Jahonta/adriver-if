@@ -34,14 +34,22 @@ const FilterId = ({ onChange }: FilterIdProps) => {
 
   return <div className={cn(styles.container)}>
     <label className={cn(styles.label)} htmlFor='id'>ID
-      <button className={cn(styles.infoButton)} onClick={togglePopover}
+      <button className={cn(styles.infoButton)}
+        type='button'
+        onClick={togglePopover}
       >ℹ</button>
       <div className={cn(styles.infoPopover, {
         [styles.isShown]: isShown
       })}
-        tabIndex={0}
-        onBlur={togglePopover}
-      >ID разделяются запятой. Например: 111, 222, 333</div>
+      >
+        <button className={cn(styles.closeButton)}
+          type='button'
+          onClick={togglePopover}
+        >
+          <span className='visually-hidden'>Закрыть</span>
+        </button>
+        ID разделяются запятой. Например: 111, 222, 333
+      </div>
     </label>
     <input className={cn(styles.input)}
       type="text"
